@@ -9,8 +9,9 @@ Teacher-Student Network
 * Keras/Pytorch
 
 * Dataset download & preprocessing code: 
+  (Data Link: https://www.kaggle.com/lucidlenn/sloan-digital-sky-survey/version/2)
   
-  1. Numpy Arrays into NN (.csv is input)
+  1. Read from csv
   2. 
 
 
