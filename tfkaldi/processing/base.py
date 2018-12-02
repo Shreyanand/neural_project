@@ -102,6 +102,57 @@ def fbank(signal, samplerate, conf):
 
     return feat, energy
 
+
+def art_fbank(art_signal, samplerate, conf):
+    '''
+    Compute articulator fbank features from an articulator signal.
+
+    Args:
+        signal: the  articulator signal from which to compute features. Should be an
+            N*1 array
+        samplerate: the samplerate of the signal we are working with.
+        conf: feature configuration
+
+    Returns:
+        A numpy array of size (NUMFRAMES by nfilt) containing features, a numpy
+        vector containing the signal energy
+    '''
+
+    #print(signal.shape)
+    #print(samplerate)
+    #print(conf)
+    
+    dimension = art_signal.shape[0] / 84   #12 dimensions 7 chanels
+    feat = art_signal.reshape(dimension, 84)
+    energy = -1
+#    highfreq = int(conf['highfreq'])
+#    if highfreq < 0:
+#        highfreq = samplerate/2
+#
+#    art_signal = sigproc.preemphasis(art_signal, float(conf['preemph']))
+#    frames = sigproc.framesig(art_signal, float(conf['winlen'])*samplerate,
+#                              float(conf['winstep'])*samplerate)
+#
+#    pspec = sigproc.powspec(frames, int(conf['nfft']))
+#
+#    # this stores the total energy in each frame
+#    energy = numpy.sum(pspec, 1)
+#
+#    # if energy is zero, we get problems with log
+#    energy = numpy.where(energy == 0, numpy.finfo(float).eps, energy)
+#
+#    filterbank = get_filterbanks(int(conf['nfilt']), int(conf['nfft']),
+#                                 samplerate, int(conf['lowfreq']), highfreq)
+#
+#    # compute the filterbank energies
+#    feat = numpy.dot(pspec, filterbank.T)
+#
+#    # if feat is zero, we get problems with log
+#    feat = numpy.where(feat == 0, numpy.finfo(float).eps, feat)
+
+    return feat, energy
+
+
 def logfbank(signal, samplerate, conf):
     '''
     Compute log-fbank features from an audio signal.
