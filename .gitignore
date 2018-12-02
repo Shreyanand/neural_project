@@ -1,3 +1,5 @@
 tfkaldi/timit/
 tfkaldi/torgo/feats/
 tfkaldi/torgo/expdir/
+.DS_Store
+tfkaldi/.DS_Store
